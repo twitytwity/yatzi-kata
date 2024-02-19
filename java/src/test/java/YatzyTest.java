@@ -67,6 +67,7 @@ public class YatzyTest {
         assertEquals(12, Yatzy.score_pair(5,3,6,6,5));
     }
 
+
     @Test
     public void two_Pair() {
         assertEquals(16, Yatzy.two_pair(3,3,5,4,5));
@@ -100,11 +101,27 @@ public class YatzyTest {
         assertEquals(20, Yatzy.largeStraight(6,2,3,4,5));
         assertEquals(20, Yatzy.largeStraight(2,3,4,5,6));
         assertEquals(0, Yatzy.largeStraight(1,2,2,4,5));
+        assertEquals(0, Yatzy.largeStraight(0,0,2,4,5));
     }
 
     @Test
     public void fullHouse() {
         assertEquals(18, Yatzy.fullHouse(6,2,2,2,6));
         assertEquals(0, Yatzy.fullHouse(2,3,4,5,6));
+    }
+
+    @Test
+    public void fullHouseFalse() {
+        assertNotEquals(16, Yatzy.fullHouse(6,2,2,2,6));
+    }
+
+    @Test
+    public void testDoubleAndThreeDifferent() {
+        assertEquals(0, Yatzy.fullHouse(1, 1, 2, 3, 4));
+    }
+
+    @Test
+    public void testFullHouseWithUnorderedNumbers() {
+        assertEquals(21, Yatzy.fullHouse(5, 3, 5, 3, 5));
     }
 }
